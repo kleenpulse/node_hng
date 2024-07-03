@@ -1,19 +1,17 @@
-const express = require("express");
-const axios = require("axios");
-const requestIp = require("request-ip");
-require("dotenv").config();
+import express from "express";
+import axios from "axios";
+import { mw } from "request-ip";
+import dotenv from "dotenv";
 
+dotenv.config();
 const app = express();
 const PORT = 5500;
-const IPAPI_KEY = process.env.IPAPI_KEY || "your_ipapi_key";
 const OPENWEATHERMAP_API_KEY = process.env.OPENWEATHERMAP_API_KEY;
 
-app.use(requestIp.mw());
+app.use(mw());
 app.set('trust proxy', true);
 // Function to get the location based on IP address
 async function getLocation(ip) {
-
-
   const url = `https://ipapi.co/${ip}/json/`;
   const response = await axios.get(url);
   const data = response.data;
