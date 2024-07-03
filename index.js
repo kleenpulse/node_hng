@@ -4,7 +4,7 @@ const requestIp = require("request-ip");
 require("dotenv").config();
 
 const app = express();
-const PORT = process.env.PORT || 5500;
+const PORT = 5500;
 const IPAPI_KEY = process.env.IPAPI_KEY || "your_ipapi_key";
 const OPENWEATHERMAP_API_KEY = process.env.OPENWEATHERMAP_API_KEY;
 
